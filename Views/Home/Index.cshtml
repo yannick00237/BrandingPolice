@@ -1,0 +1,11 @@
+﻿<!-- hier bekomme ich meine model (PowerpointFile) -->
+@model PowerpointFile 
+<h3>PowerPoint Datein hochladen</h3>
+
+<form asp-controller="Home" asp-action="Index" method="post" class="form-horizontal" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly" class="text-danger"/>
+        <span asp-validation-for="MyFile" class="text-danger"></span>
+        <input asp-for="MyFile" />
+        <br />
+        <input type="submit" value="Upload"/>
+</form>

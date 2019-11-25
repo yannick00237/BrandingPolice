@@ -1,0 +1,82 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/dolice/Desktop/Projekt_Vt/BrandingPolice/BrandingPolice/BrandingPolice.csproj": {}
+  },
+  "projects": {
+    "/Users/dolice/Desktop/Projekt_Vt/BrandingPolice/BrandingPolice/BrandingPolice.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/dolice/Desktop/Projekt_Vt/BrandingPolice/BrandingPolice/BrandingPolice.csproj",
+        "projectName": "BrandingPolice",
+        "projectPath": "/Users/dolice/Desktop/Projekt_Vt/BrandingPolice/BrandingPolice/BrandingPolice.csproj",
+        "packagesPath": "/Users/dolice/.nuget/packages/",
+        "outputPath": "/Users/dolice/Desktop/Projekt_Vt/BrandingPolice/BrandingPolice/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/dolice/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "dependencies": {
+            "Azure.Storage.Blobs": {
+              "target": "Package",
+              "version": "[12.0.0, )"
+            },
+            "Microsoft.Azure.ConfigurationManager": {
+              "target": "Package",
+              "version": "[4.0.0, )"
+            },
+            "Microsoft.Azure.Storage.Queue": {
+              "target": "Package",
+              "version": "[11.1.1, )"
+            },
+            "WindowsAzure.Storage": {
+              "target": "Package",
+              "version": "[9.3.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.0.101/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

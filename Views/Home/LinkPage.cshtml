@@ -1,0 +1,17 @@
+﻿@model BlobLists
+@{
+    ViewData["Title"] = "Results Links Lists";
+}
+<h2>@ViewData["Title"]</h2>
+<h3>@ViewData["Message"]</h3>
+@if (Model.Links.Count > 0)
+{
+    <div>
+        @foreach(var blobLink in Model.Links)
+        {
+           <li><td> <a href="https://blobwebapprandingpolice.blob.core.windows.net/quickstartblob/@(blobLink)">@blobLink</a></td> </li>
+           
+        }
+    </div>
+}
+
