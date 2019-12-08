@@ -1,28 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "/Users/dolice/Desktop/Projekt_Vt/BrandingPolice/BrandingPolice/BrandingPolice.csproj": {}
+    "C:\\Users\\#lambda\\Downloads\\BrandingPolice\\BrandingPolice.csproj": {}
   },
   "projects": {
-    "/Users/dolice/Desktop/Projekt_Vt/BrandingPolice/BrandingPolice/BrandingPolice.csproj": {
+    "C:\\Users\\#lambda\\Downloads\\BrandingPolice\\BrandingPolice.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/dolice/Desktop/Projekt_Vt/BrandingPolice/BrandingPolice/BrandingPolice.csproj",
+        "projectUniqueName": "C:\\Users\\#lambda\\Downloads\\BrandingPolice\\BrandingPolice.csproj",
         "projectName": "BrandingPolice",
-        "projectPath": "/Users/dolice/Desktop/Projekt_Vt/BrandingPolice/BrandingPolice/BrandingPolice.csproj",
-        "packagesPath": "/Users/dolice/.nuget/packages/",
-        "outputPath": "/Users/dolice/Desktop/Projekt_Vt/BrandingPolice/BrandingPolice/obj/",
+        "projectPath": "C:\\Users\\#lambda\\Downloads\\BrandingPolice\\BrandingPolice.csproj",
+        "packagesPath": "C:\\Users\\Yannick\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\#lambda\\Downloads\\BrandingPolice\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "/Users/dolice/.config/NuGet/NuGet.Config"
+          "C:\\Users\\Yannick\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -74,7 +76,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.0.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

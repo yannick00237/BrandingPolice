@@ -1,6 +1,6 @@
 ﻿@model BlobLists
 @{
-    ViewData["Title"] = "Results Links Lists";
+    ViewData["Title"] = "Result Page";
 }
 <h2>@ViewData["Title"]</h2>
 <h3>@ViewData["Message"]</h3>
@@ -9,7 +9,7 @@
     <div>
         @foreach(var blobLink in Model.Links)
         {
-           <li><td> <a href="https://blobwebapprandingpolice.blob.core.windows.net/quickstartblob/@(blobLink)">@blobLink</a></td> </li>
+           <li><td> <a href="https://blobwebapprandingpolice.blob.core.windows.net/containerbrandingpolice/@(blobLink)">@blobLink</a></td> </li>
            
         }
     </div>

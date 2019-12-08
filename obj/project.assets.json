@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Projekt_Vt\\BrandingPolice\\BrandingPolice\\BrandingPolice.csproj",
+      "projectUniqueName": "C:\\Users\\#lambda\\Downloads\\BrandingPolice\\BrandingPolice.csproj",
       "projectName": "BrandingPolice",
-      "projectPath": "E:\\Projekt_Vt\\BrandingPolice\\BrandingPolice\\BrandingPolice.csproj",
+      "projectPath": "C:\\Users\\#lambda\\Downloads\\BrandingPolice\\BrandingPolice.csproj",
       "packagesPath": "C:\\Users\\Yannick\\.nuget\\packages\\",
-      "outputPath": "E:\\Projekt_Vt\\BrandingPolice\\BrandingPolice\\obj\\",
+      "outputPath": "C:\\Users\\#lambda\\Downloads\\BrandingPolice\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -28,8 +28,8 @@ namespace BrandingPolice.Controllers
         // console or with Visual Studio, the shell or application needs to be closed
         // and reloaded to take the environment variable into account.
         public string connectionString = "DefaultEndpointsProtocol=https;AccountName=blobwebapprandingpolice;AccountKey=KSHFoKrUVCNytbWDpeDQ9a1iboXBbUcDc2DxpgixpvngcYPmDaUD/LpuiV/HtJ2z/sjG1kFzJtcNQjSpjlj0hg==;EndpointSuffix=core.windows.net";
-                         //Create a unique name for the container
-        public string containerName = "quickstartblob";
+        //Create a unique name for the container
+        public string containerName = "containerbrandingpolice"/* + Guid.NewGuid().ToString()*/;
         public string queueName = "queuebrandingpolice";
 
 
@@ -50,7 +50,7 @@ namespace BrandingPolice.Controllers
             // Create a local file in the ./data/ directory for uploading and downloading
             string localPath = "";
             //powerpointFile.FileTitle = powerpointFile.MyFile.FileName;
-            string results_fileName = "results_" + Guid.NewGuid().ToString() + ".txt";
+            string results_fileName = "result.txt";
             string localFilePath_txt = Path.Combine(localPath, results_fileName);
 
 
@@ -83,7 +83,7 @@ namespace BrandingPolice.Controllers
             blockBlob.Properties.ContentType = "text/plain";
 
             // Write text to the file
-            await System.IO.File.WriteAllTextAsync(localFilePath_txt, "Working on ppt_xx.pptx");
+            await System.IO.File.WriteAllTextAsync(localFilePath_txt, "Working on " + powerpointFile.MyFile.FileName + ".pptx");
             using (var filestream = System.IO.File.OpenRead(localFilePath_txt))
             {
                await blockBlob.UploadFromStreamAsync(filestream);
