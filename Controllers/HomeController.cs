@@ -18,6 +18,14 @@ using Microsoft.WindowsAzure.Storage.Blob;
 
 namespace BrandingPolice.Controllers
 {
+    public static class Globals
+    {
+        // public static global::System.String ContainerName { get => containerName; set => containerName = value; 
+        public static string ContainerName = "";
+
+        public static void sGuID() => ContainerName += "container" + Guid.NewGuid().ToString();
+    }
+
     public class HomeController : Controller
     {
 
@@ -29,7 +37,7 @@ namespace BrandingPolice.Controllers
         // and reloaded to take the environment variable into account.
         public string connectionString = "DefaultEndpointsProtocol=https;AccountName=blobwebapprandingpolice;AccountKey=KSHFoKrUVCNytbWDpeDQ9a1iboXBbUcDc2DxpgixpvngcYPmDaUD/LpuiV/HtJ2z/sjG1kFzJtcNQjSpjlj0hg==;EndpointSuffix=core.windows.net";
         //Create a unique name for the container
-        public string containerName = "containerbrandingpolice"/* + Guid.NewGuid().ToString()*/;
+        //public string containerName = "containerbrandingpolice"/* + Guid.NewGuid().ToString()*/;
         public string queueName = "queuebrandingpolice";
 
 
@@ -44,8 +52,8 @@ namespace BrandingPolice.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(PowerpointFile powerpointFile)
         {
-
-
+            //Generating a Unique Identifier for the container
+            Globals.sGuID();
 
             // Create a local file in the ./data/ directory for uploading and downloading
             string localPath = "";
@@ -53,15 +61,9 @@ namespace BrandingPolice.Controllers
             string results_fileName = "result.txt";
             string localFilePath_txt = Path.Combine(localPath, results_fileName);
 
-
-
+            //Parsing the connection string
             Microsoft.WindowsAzure.Storage.CloudStorageAccount storageacc = Microsoft.WindowsAzure.Storage.CloudStorageAccount.Parse(connectionString);
-
-
-
             Microsoft.Azure.Storage.CloudStorageAccount queueStorageAccount = Microsoft.Azure.Storage.CloudStorageAccount.Parse(connectionString);
-
-
 
             // Create a BlobServiceClient object which will be used to create a container client
             CloudBlobClient blobClient = storageacc.CreateCloudBlobClient();
@@ -76,7 +78,7 @@ namespace BrandingPolice.Controllers
 
 
             // Create the container and return a container client object
-            CloudBlobContainer container = blobClient.GetContainerReference(containerName);
+            CloudBlobContainer container = blobClient.GetContainerReference(Globals.ContainerName);
             await container.CreateIfNotExistsAsync();
 
             CloudBlockBlob blockBlob = container.GetBlockBlobReference(results_fileName);
@@ -86,20 +88,14 @@ namespace BrandingPolice.Controllers
             await System.IO.File.WriteAllTextAsync(localFilePath_txt, "Working on " + powerpointFile.MyFile.FileName + ".pptx");
             using (var filestream = System.IO.File.OpenRead(localFilePath_txt))
             {
-               await blockBlob.UploadFromStreamAsync(filestream);
-        //send message to Queue
-               CloudQueueMessage message = new CloudQueueMessage(blockBlob.Uri.ToString());
-               queue.AddMessage(message);
+                await blockBlob.UploadFromStreamAsync(filestream);
+                //Send message to Queue
+                CloudQueueMessage message = new CloudQueueMessage(blockBlob.Uri.ToString());
+                queue.AddMessage(message);
             }
-
-            /*
-             * https://github.com/jayesh-tanna/azure-blob/blob/master/AzureBlob/AzureBlob.API/Controllers/UserController.cs
-             */
 
             if (Microsoft.Azure.Storage.CloudStorageAccount.TryParse(connectionString, out Microsoft.Azure.Storage.CloudStorageAccount storageAccount))
             {
-                
-
                 await container.CreateIfNotExistsAsync();
 
                 //MS: Don't rely on or trust the FileName property without validation. The FileName property should only be used for display purposes.
@@ -109,13 +105,7 @@ namespace BrandingPolice.Controllers
                 //send message to Queue
                 CloudQueueMessage message = new CloudQueueMessage(picBlob.Uri.ToString());
                 queue.AddMessage(message);
-
-                // return Ok(picBlob.Uri);
             }
-
-
-
-
 
             return Redirect("/Home/LinkPage");
 
@@ -129,15 +119,20 @@ namespace BrandingPolice.Controllers
             BlobServiceClient blobServiceClient = new BlobServiceClient(connectionString);
 
             // Create the container and return a container client object
-            BlobContainerClient containerClient =  blobServiceClient.GetBlobContainerClient(containerName);
+            BlobContainerClient containerClient = blobServiceClient.GetBlobContainerClient(Globals.ContainerName);
 
+            List<string> bName = new List<string>();
             BlobLists blobLists = new BlobLists();
             blobLists.Links = new List<string>();
             // List all blobs in the container
             await foreach (BlobItem blobItem in containerClient.GetBlobsAsync())
             {
-                blobLists.Links.Add(blobItem.Name);
+                blobLists.Links.Add(containerClient.Uri + "/" + blobItem.Name);
+                bName.Add(blobItem.Name);
+
             }
+            ViewData["file"] = bName[0];
+            ViewData["result"] = bName[1];
 
             return View(blobLists);
         }
