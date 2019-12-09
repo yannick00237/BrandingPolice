@@ -3560,7 +3560,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Yannick\\.nuget\\packages\\": {},
+    "C:\\Users\\#lambda\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
@@ -3569,14 +3569,14 @@
       "projectUniqueName": "C:\\Users\\#lambda\\Downloads\\BrandingPolice\\BrandingPolice.csproj",
       "projectName": "BrandingPolice",
       "projectPath": "C:\\Users\\#lambda\\Downloads\\BrandingPolice\\BrandingPolice.csproj",
-      "packagesPath": "C:\\Users\\Yannick\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\#lambda\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\#lambda\\Downloads\\BrandingPolice\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Yannick\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\#lambda\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

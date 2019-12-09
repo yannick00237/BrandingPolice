@@ -57,7 +57,7 @@ namespace BrandingPolice.Controllers
             Globals.sGuID();
 
             // Create a local file in the ./data/ directory for uploading and downloading
-            string localPath = "";
+            string localPath = "./data";
             //powerpointFile.FileTitle = powerpointFile.MyFile.FileName;
             string results_fileName = "result" + Globals.ContainerName + ".txt";
             string localFilePath_txt = Path.Combine(localPath, results_fileName);
@@ -100,7 +100,7 @@ namespace BrandingPolice.Controllers
                 await container.CreateIfNotExistsAsync();
 
                 //MS: Don't rely on or trust the FileName property without validation. The FileName property should only be used for display purposes.
-                var picBlob = container.GetBlockBlobReference("powerpoint" + Globals.ContainerName + ".pptx");
+                var picBlob = container.GetBlockBlobReference(Path.GetFileNameWithoutExtension(powerpointFile.MyFile.FileName) + Globals.ContainerName + ".pptx");
 
                 await picBlob.UploadFromStreamAsync(powerpointFile.MyFile.OpenReadStream());
                 //send message to Queue
@@ -129,7 +129,7 @@ namespace BrandingPolice.Controllers
             {
                 blobLists.Links.Add(blobItem.Name);
             }
-            ViewData["id"] = Globals.ContainerName;
+            ViewData["id"] = "result" + Globals.ContainerName + ".txt";
 
             return View(blobLists);
         }
