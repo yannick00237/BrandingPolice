@@ -23,7 +23,7 @@ namespace BrandingPolice.Controllers
         // public static global::System.String ContainerName { get => containerName; set => containerName = value; 
         public static string ContainerName = "";
 
-        public static void sGuID() => ContainerName += "container" + Guid.NewGuid().ToString();
+        public static void sGuID() => ContainerName += "" + Guid.NewGuid().ToString();
     }
 
     public class HomeController : Controller
@@ -39,6 +39,7 @@ namespace BrandingPolice.Controllers
         //Create a unique name for the container
         //public string containerName = "containerbrandingpolice"/* + Guid.NewGuid().ToString()*/;
         public string queueName = "queuebrandingpolice";
+        public string containerName = "containerbrandingpolice";
 
 
         [HttpGet]
@@ -58,7 +59,7 @@ namespace BrandingPolice.Controllers
             // Create a local file in the ./data/ directory for uploading and downloading
             string localPath = "";
             //powerpointFile.FileTitle = powerpointFile.MyFile.FileName;
-            string results_fileName = "result.txt";
+            string results_fileName = "result" + Globals.ContainerName + ".txt";
             string localFilePath_txt = Path.Combine(localPath, results_fileName);
 
             //Parsing the connection string
@@ -78,7 +79,7 @@ namespace BrandingPolice.Controllers
 
 
             // Create the container and return a container client object
-            CloudBlobContainer container = blobClient.GetContainerReference(Globals.ContainerName);
+            CloudBlobContainer container = blobClient.GetContainerReference(containerName);
             await container.CreateIfNotExistsAsync();
 
             CloudBlockBlob blockBlob = container.GetBlockBlobReference(results_fileName);
@@ -99,7 +100,7 @@ namespace BrandingPolice.Controllers
                 await container.CreateIfNotExistsAsync();
 
                 //MS: Don't rely on or trust the FileName property without validation. The FileName property should only be used for display purposes.
-                var picBlob = container.GetBlockBlobReference(powerpointFile.MyFile.FileName);
+                var picBlob = container.GetBlockBlobReference("powerpoint" + Globals.ContainerName + ".pptx");
 
                 await picBlob.UploadFromStreamAsync(powerpointFile.MyFile.OpenReadStream());
                 //send message to Queue
@@ -119,20 +120,16 @@ namespace BrandingPolice.Controllers
             BlobServiceClient blobServiceClient = new BlobServiceClient(connectionString);
 
             // Create the container and return a container client object
-            BlobContainerClient containerClient = blobServiceClient.GetBlobContainerClient(Globals.ContainerName);
+            BlobContainerClient containerClient = blobServiceClient.GetBlobContainerClient(containerName);
 
-            List<string> bName = new List<string>();
             BlobLists blobLists = new BlobLists();
             blobLists.Links = new List<string>();
             // List all blobs in the container
             await foreach (BlobItem blobItem in containerClient.GetBlobsAsync())
             {
-                blobLists.Links.Add(containerClient.Uri + "/" + blobItem.Name);
-                bName.Add(blobItem.Name);
-
+                blobLists.Links.Add(blobItem.Name);
             }
-            ViewData["file"] = bName[0];
-            ViewData["result"] = bName[1];
+            ViewData["id"] = Globals.ContainerName;
 
             return View(blobLists);
         }

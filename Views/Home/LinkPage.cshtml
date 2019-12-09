@@ -7,15 +7,12 @@
 @if (Model.Links.Count > 0)
 {
 <div>
-    @{if (Model.Links[0].Contains("result.txt"))
-        {
-            <li><td> <a href=@(Model.Links[0])>@ViewData["result"]</a></td> </li>
-            <li><td> <a href=@(Model.Links[1])>@ViewData["file"]</a></td> </li>
-        }
-        else
-        {
-            <li><td> <a href=@(Model.Links[0])>@ViewData["file"]</a></td> </li>
-            <li><td> <a href=@(Model.Links[1])>@ViewData["result"]</a></td> </li>
+    @foreach (string blobLink in Model.Links)
+    {
+        string id = (string)ViewData["id"];
+        if (blobLink.Contains(id))
+        { 
+            <li><td> <a href="https://blobwebapprandingpolice.blob.core.windows.net/containerbrandingpolice/@(blobLink)">@blobLink</a></td> </li>
         }
 
     }
