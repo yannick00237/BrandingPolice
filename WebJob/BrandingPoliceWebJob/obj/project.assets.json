@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\#lambda\\Downloads\\BrandingPoliceWebJob\\BrandingPoliceWebJob\\BrandingPoliceWebJob.csproj",
+      "projectUniqueName": "C:\\Users\\#lambda\\Downloads\\BrandingPolice\\WebJob\\BrandingPoliceWebJob\\BrandingPoliceWebJob.csproj",
       "projectName": "BrandingPoliceWebJob",
-      "projectPath": "C:\\Users\\#lambda\\Downloads\\BrandingPoliceWebJob\\BrandingPoliceWebJob\\BrandingPoliceWebJob.csproj",
+      "projectPath": "C:\\Users\\#lambda\\Downloads\\BrandingPolice\\WebJob\\BrandingPoliceWebJob\\BrandingPoliceWebJob.csproj",
       "packagesPath": "C:\\Users\\#lambda\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\#lambda\\Downloads\\BrandingPoliceWebJob\\BrandingPoliceWebJob\\obj\\",
+      "outputPath": "C:\\Users\\#lambda\\Downloads\\BrandingPolice\\WebJob\\BrandingPoliceWebJob\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

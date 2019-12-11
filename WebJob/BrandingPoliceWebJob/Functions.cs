@@ -96,7 +96,7 @@ namespace BrandingPoliceWebJob
                             // append text to the file
                             //await System.IO.File.AppendAllTextAsync(localFilePath_txt, slideText);
                             if (slideText.Contains(search))
-                                System.Console.WriteLine("PAWG & FUTANARI", i + 1, slideText);
+                                System.Console.WriteLine("\nRETURN 0\n", i + 1, slideText);
                                 result += result + String.Format("In der {0}.Slide benutzen Sie den Begriff Windows Azure statt Microsoft Azure\n", i + 1);
                         }
                         await System.IO.File.AppendAllTextAsync(localFilePath_txt, result);
