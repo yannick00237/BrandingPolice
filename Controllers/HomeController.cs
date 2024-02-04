@@ -43,12 +43,12 @@ namespace BrandingPolice.Controllers
 
 
         [HttpGet]
-        public IActionResult Index()
-        {
-            //hier sende ich mein Model(PowerpointFile) zu der View(Index)
-            return View(new PowerpointFile());
+        // public IActionResult Index()
+        // {
+        //     //hier sende ich mein Model(PowerpointFile) zu der View(Index)
+        //     return View(new PowerpointFile());
 
-        }
+        // }
 
         [HttpPost]
         public async Task<IActionResult> Index(PowerpointFile powerpointFile)
